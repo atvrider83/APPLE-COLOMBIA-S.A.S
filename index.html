@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="Catálogo de iPhone de APPLE COLOMBIA S.A.S.">
+<title>APPLE COLOMBIA S.A.S. | Tienda iPhone</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f7;color:#111}
+a{text-decoration:none;color:inherit}
+.topbar{background:#080808;color:#fff;text-align:center;padding:10px;font-size:12px;letter-spacing:1px}
+header{background:#fff;padding:15px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #eee;position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;object-fit:contain}
+.brand-name{font-weight:bold;font-size:16px}
+.brand-sub{font-size:10px;color:#777;margin-top:5px}
+nav{display:flex;align-items:center;gap:18px;font-size:13px;font-weight:bold}
+.nav-button{background:#111;color:white;padding:12px 16px;border-radius:25px}
+.hero{background:#080808;color:white;text-align:center;padding:75px 6%}
+.hero-label{font-size:11px;letter-spacing:2px;border:1px solid #555;padding:9px 15px;border-radius:25px}
+.hero h1{font-size:clamp(35px,6vw,65px);line-height:1.1;letter-spacing:-2px;margin:25px 0 15px}
+.hero h1 span{color:#aaa}
+.hero p{color:#ccc;max-width:650px;margin:0 auto 28px;line-height:1.8;font-size:15px}
+.button{display:inline-block;padding:14px 22px;border-radius:28px;font-size:13px;font-weight:bold;margin:5px}
+.button-white{background:#fff;color:#111}
+.button-outline{border:1px solid #888;color:#fff}
+.benefits{background:#fff;display:grid;grid-template-columns:repeat(4,1fr);gap:15px;padding:25px 5%;text-align:center}
+.benefit{padding:8px}
+.benefit-icon{font-size:25px;margin-bottom:8px}
+.benefit strong{display:block;font-size:13px}
+.benefit small{display:block;color:#777;font-size:11px;margin-top:6px}
+.section{max-width:1500px;margin:auto;padding:55px 5%}
+.heading{text-align:center;margin-bottom:30px}
+.eyebrow{font-size:11px;letter-spacing:2px;color:#777;font-weight:bold}
+.heading h2{font-size:clamp(28px,4vw,40px);margin:12px 0}
+.heading p{font-size:14px;color:#777}
+.tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:25px}
+#search{flex:1;min-width:180px}
+#search,#filter{padding:13px;border:1px solid #ddd;border-radius:10px;background:white;font-size:13px}
+#count{font-size:12px;color:#777}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.product{background:white;border:1px solid #eaeaea;border-radius:17px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.product:hover{transform:translateY(-4px);box-shadow:0 10px 28px #0000000c}
+.product-art{height:220px;background:linear-gradient(145deg,#fafafa,#ededf0);display:flex;align-items:center;justify-content:center;padding:16px;position:relative;overflow:hidden}
+.product-art:before{content:"";position:absolute;width:145px;height:145px;border-radius:50%;background:#fff9}
+.product-image{display:block;position:relative;z-index:1;width:100%;height:190px;object-fit:contain}
+.product-tag{position:absolute;z-index:2;top:12px;left:12px;background:#fff;border-radius:20px;padding:7px 10px;font-size:10px;font-weight:bold}
+.product-body{padding:18px;display:flex;flex-direction:column;flex:1}
+.product-body h3{font-size:17px;margin:0 0 7px}
+.storage{font-size:11px;color:#777}
+.price{font-size:23px;font-weight:bold;margin:15px 0 12px}
+.price small{font-size:11px;color:#777;font-weight:normal}
+.colors-title{font-size:11px;font-weight:bold;margin-bottom:7px}
+.colors{font-size:11px;color:#666;line-height:1.8;min-height:40px}
+.order-btn{background:#111;color:white;text-align:center;padding:13px 8px;border-radius:9px;font-size:12px;font-weight:bold;margin-top:15px}
+.order-btn:hover{background:#333}
+.info-section{background:white}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+.info-card{padding:25px;border:1px solid #e5e5e5;border-radius:16px}
+.info-card h3{font-size:17px}
+.info-card p,.info-card li{font-size:13px;line-height:1.8;color:#666}
+.info-card ul{padding-left:20px}
+.contact{background:#080808;color:#fff;text-align:center;padding:45px 20px;margin:45px 5%;border-radius:20px}
+.contact h2{font-size:clamp(25px,4vw,38px)}
+.contact p{color:#bbb;line-height:1.7;font-size:14px}
+footer{background:white;padding:30px 5% 20px;border-top:1px solid #eee}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer p,.copyright{font-size:12px;color:#777;line-height:1.8}
+.footer-links{display:flex;gap:15px;flex-wrap:wrap;font-size:12px}
+.copyright{border-top:1px solid #eee;margin-top:20px;padding-top:18px;font-size:11px}
+.whatsapp-float{position:fixed;bottom:20px;right:20px;width:56px;height:56px;border-radius:50%;background:#20bd5a;color:#fff;display:grid;place-items:center;font-size:27px;z-index:20;box-shadow:0 4px 15px #0003}
+[hidden]{display:none!important}
+
+@media(max-width:1050px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:720px){
+ header{padding:12px 4%}
+ .brand-name{font-size:12px}
+ .brand-sub{font-size:9px}
+ nav{gap:8px}
+ nav a:not(.nav-button){display:none}
+ .nav-button{font-size:11px;padding:11px}
+ .hero{padding:55px 5%}
+ .hero h1{letter-spacing:-1px}
+ .benefits{grid-template-columns:repeat(2,1fr);padding:20px 3%}
+ .section{padding:40px 4%}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .product-art{height:165px;padding:10px}
+ .product-image{height:145px}
+ .product-body{padding:12px}
+ .product-body h3{font-size:14px}
+ .price{font-size:19px}
+ .colors{font-size:10px}
+ .info-grid{grid-template-columns:1fr}
+ .contact{margin:30px 4%}
+}
+@media(max-width:350px){.products{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+APPLE COLOMBIA S.A.S. · CATÁLOGO DE IPHONE
+</div>
+
+<header>
+<a class="brand" href="#inicio">
+  <!-- Guarda tu logo como logo.png junto a este archivo -->
+  <img class="logo" src="logo.png" alt="Logo de Apple Colombia"
+       onerror="this.style.display='none'">
+  <div>
+    <div class="brand-name">APPLE COLOMBIA S.A.S.</div>
+    <div class="brand-sub">CALIDAD Y PRECIOS DE BODEGA</div>
+  </div>
+</a>
+<nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#catalogo">Catálogo</a>
+  <a href="#pagos">Pagos y envíos</a>
+  <a class="nav-button" href="https://wa.me/573148838228" target="_blank" rel="noopener">WhatsApp ↗️</a>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <span class="hero-label">TECNOLOGÍA · ESTILO · INNOVACIÓN</span>
+  <h1>Tu próximo iPhone,<br><span>al mejor precio.</span></h1>
+  <p>
+    Bodega y distribuidores directamente de Estados Unidos.
+    Explora nuestro catálogo, consulta los colores disponibles
+    y recibe asesoría sobre precios, pagos y envíos.
+  </p>
+  <a class="button button-white" href="#catalogo">Ver catálogo ↓</a>
+  <a class="button button-outline"
+     href="https://wa.me/573148838228?text=Hola%2C%20quiero%20asesor%C3%ADa%20para%20comprar%20un%20iPhone"
+     target="_blank" rel="noopener">Hablar con un asesor</a>
+</section>
+
+<section class="benefits">
+  <div class="benefit"><div class="benefit-icon">📱</div><strong>Catálogo de iPhone</strong><small>Consulta nuestros modelos</small></div>
+  <div class="benefit"><div class="benefit-icon">💳</div><strong>Opciones de pago</strong><small>Contado y consulta de crédito</small></div>
+  <div class="benefit"><div class="benefit-icon">📦</div><strong>Envíos nacionales</strong><small>Consulta cobertura y tarifas</small></div>
+  <div class="benefit"><div class="benefit-icon">💬</div><strong>Atención por WhatsApp</strong><small>Resuelve tus dudas</small></div>
+</section>
+
+<section class="section" id="catalogo">
+  <div class="heading">
+    <div class="eyebrow">ENCUENTRA TU MODELO</div>
+    <h2>Catálogo de iPhone</h2>
+    <p>Modelos de 256 GB · Precios en pesos colombianos</p>
+  </div>
+
+  <div class="tools">
+    <input id="search" type="search" placeholder="Buscar modelo de iPhone..." aria-label="Buscar iPhone">
+    <select id="filter" aria-label="Filtrar productos por precio">
+      <option value="all">Todos los precios</option>
+      <option value="low">Hasta $1.000.000</option>
+      <option value="mid">$1.000.001 a $2.000.000</option>
+      <option value="high">Más de $2.000.000</option>
+    </select>
+    <span id="count">15 productos</span>
+  </div>
+
+  <div class="products" id="products">
+
+    <!-- PRODUCTO 1 -->
+    <article class="product" data-name="iphone 11" data-price="500000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img src:img/iphone11.jpg"> alt="iPhone 11 de 256 GB, fotografía del producto" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 11</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$500.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Negro, blanco, morado y rojo.</div>
+        <a class="order-btn" href="#" data-model="iPhone 11 256 GB" data-price="500.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 2 -->
+    <article class="product" data-name="iphone 11 pro max" data-price="700000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-11-pro-max-256gb.jpg" alt="iPhone 11 Pro Max de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 11 Pro Max</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$700.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Verde medianoche, gris espacial, plata y oro.</div>
+        <a class="order-btn" href="#" data-model="iPhone 11 Pro Max 256 GB" data-price="700.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 3 -->
+    <article class="product" data-name="iphone 12" data-price="900000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-12-256gb.jpg" alt="iPhone 12 de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 12</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$900.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Negro, blanco, azul, verde, rojo y morado.</div>
+        <a class="order-btn" href="#" data-model="iPhone 12 256 GB" data-price="900.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 4 -->
+    <article class="product" data-name="iphone 12 pro max" data-price="1100000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-12-pro-max-256gb.jpg" alt="iPhone 12 Pro Max de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 12 Pro Max</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$1.100.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Azul pacífico, gris oscuro, oro y plata.</div>
+        <a class="order-btn" href="#" data-model="iPhone 12 Pro Max 256 GB" data-price="1.100.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 5 -->
+    <article class="product" data-name="iphone 13" data-price="1300000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-13-256gb.jpg" alt="iPhone 13 de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 13</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$1.300.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Verde, rosa, azul, gris, blanco y rojo.</div>
+        <a class="order-btn" href="#" data-model="iPhone 13 256 GB" data-price="1.300.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 6 -->
+    <article class="product" data-name="iphone 13 pro max" data-price="1500000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-13-pro-max-256gb.jpg" alt="iPhone 13 Pro Max de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 13 Pro Max</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$1.500.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Gris oscuro, oro, plata, azul sierra y verde alpino.</div>
+        <a class="order-btn" href="#" data-model="iPhone 13 Pro Max 256 GB" data-price="1.500.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 7: interpretado como iPhone 14 según la lista original -->
+    <article class="product" data-name="iphone 14" data-price="1600000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-14-256gb.jpg" alt="iPhone 14 de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 14</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$1.600.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Gris, blanco, azul, morado, rojo y amarillo.</div>
+        <a class="order-btn" href="#" data-model="iPhone 14 256 GB" data-price="1.600.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 8 -->
+    <article class="product" data-name="iphone 14 pro max" data-price="1850000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-14-pro-max-256gb.jpg" alt="iPhone 14 Pro Max de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 14 Pro Max</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$1.850.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Morado oscuro, negro espacial, plata y oro.</div>
+        <a class="order-btn" href="#" data-model="iPhone 14 Pro Max 256 GB" data-price="1.850.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 9 -->
+    <article class="product" data-name="iphone 15 plus" data-price="2000000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-15-plus-256gb.jpg" alt="iPhone 15 Plus de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 15 Plus</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$2.000.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Rosa, azul, verde, amarillo y negro.</div>
+        <a class="order-btn" href="#" data-model="iPhone 15 Plus 256 GB" data-price="2.000.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 10 -->
+    <article class="product" data-name="iphone 15 pro max" data-price="2200000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-15-pro-max-256gb.jpg" alt="iPhone 15 Pro Max de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 15 Pro Max</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$2.200.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Titanio natural, titanio azul, titanio blanco y titanio negro.</div>
+        <a class="order-btn" href="#" data-model="iPhone 15 Pro Max 256 GB" data-price="2.200.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 11 -->
+    <article class="product" data-name="iphone 16" data-price="2400000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-16-256gb.jpg" alt="iPhone 16 de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 16</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$2.400.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Rosado, azul, verde azulado, blanco y negro.</div>
+        <a class="order-btn" href="#" data-model="iPhone 16 256 GB" data-price="2.400.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 12 -->
+    <article class="product" data-name="iphone 16 pro max" data-price="2600000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-16-pro-max-256gb.jpg" alt="iPhone 16 Pro Max de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 16 Pro Max</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$2.600.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Titanio negro, titanio blanco, natural y del desierto.</div>
+        <a class="order-btn" href="#" data-model="iPhone 16 Pro Max 256 GB" data-price="2.600.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 13 -->
+    <article class="product" data-name="iphone 17" data-price="2800000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-17-256gb.jpg" alt="iPhone 17 de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 17</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$2.800.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Negro, blanco, azul neblina, salvia y lavanda.</div>
+        <a class="order-btn" href="#" data-model="iPhone 17 256 GB" data-price="2.800.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 14 -->
+    <article class="product" data-name="iphone 17 pro" data-price="3000000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-17-pro-256gb.jpg" alt="iPhone 17 Pro de 256 GB" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3>iPhone 17 Pro</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$3.000.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Naranja cósmico, azul oscuro y silver.</div>
+        <a class="order-btn" href="#" data-model="iPhone 17 Pro 256 GB" data-price="3.000.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+    <!-- PRODUCTO 15 -->
+    <article class="product" data-name="iphone 17 pro max" data-price="3200000">
+      <div class="product-art">
+        <span class="product-tag">IPHONE</span>
+        <img class="product-image" src="imagenes/iphone-17-pro-max-256gb.jpg" alt="iPhone 17 Pro max de 256 GB" loading="lazy">
+
+      </div>
+      <div class="product-body">
+        <h3>iPhone 17 Pro Max</h3><div class="storage">Almacenamiento: 256 GB</div>
+        <div class="price">$3.200.000 <small>COP</small></div>
+        <div class="colors-title">Colores disponibles</div><div class="colors">Naranjacósmico, azul oscuro y silver.</div>
+        <a class="order-btn" href="#" data-model="iPhone 17 Pro Max 256 GB" data-price="3.200.000">Consultar / Comprar →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="info-section" id="pagos">
+  <div class="section">
+    <div class="heading">
+      <div class="eyebrow">COMPRA CON INFORMACIÓN CLARA</div>
+      <h2>Pagos y envíos</h2>
+      <p>Consulta con nuestro equipo las condiciones de tu compra.</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="benefit-icon">💳</div>
+        <h3>Formas de pago</h3>
+        <ul>
+          <li>Contado.</li>
+          <li>Consulta de opciones de crédito.</li>
+<h3>Formas de pago</h3>
+        <ul>
+          <li>Contado.</li>
+          <li>Consulta de opciones de crédito.</li>
+          <li>Nequi.</li>
+          <li>Daviplata.</li>
+          <li>Llave Bre-B.</li>
+        </ul>
+        <p>Confirma los datos de pago directamente con el asesor antes de transferir.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="benefit-icon">🚚</div>
+        <h3>Envíos nacionales</h3>
+        <ul>
+          <li>Servientrega.</li>
+          <li>Interrapidísimo.</li>
+        </ul>
+        <p>Consulta cobertura, costos, tiempos estimados y condiciones de entrega.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="benefit-icon">📲</div>
+        <h3>Atención personalizada</h3>
+        <p>Pregunta por disponibilidad, colores, características y condiciones de compra.</p>
+<a class="order-btn" href="https://wa.me/573148838228?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20iPhone" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>¿Ya elegiste tu iPhone?</h2>
+  <p>Escríbenos para confirmar disponibilidad, resolver tus dudas<br>y consultar las condiciones de compra.</p>
+  <a class="button button-white" href="https://wa.me/573148838228?text=Hola%2C%20estoy%20interesado%20en%20comprar%20un%20iPhone" target="_blank" rel="noopener">Contactar asesor ↗️</a>
+</section>
+</main>
+
+<footer>
+  <div class="footer-row">
+    <div>
+      <strong>APPLE COLOMBIA S.A.S.</strong>
+      <p>Bodega y distribuidores directamente de Estados Unidos.<br>Calidad y precios de bodega.</p>
+</div>
+    <div class="footer-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#pagos">Pagos y envíos</a>
+      <a href="https://wa.me/573148838228" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+  <div class="copyright">
+    APPLE COLOMBIA S.A.S. · NIT 900736182<br>
+    Precios, colores y disponibilidad sujetos a confirmación antes de comprar.
+    Las fotografías son ilustrativas y deben corresponder a los productos
+    ofrecidos. Confirma el estado del equipo, garantía y condiciones de entrega.
+    La inclusión de marcas y modelos no implica por sí misma una afiliación
+    o autorización oficial de Apple.
+  </div>
+</footer>
+
+</body>
+</html>
